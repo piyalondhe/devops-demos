@@ -2,8 +2,10 @@ resource "aws_instance" "Ansible-master" {
   count = "${var.instance_count}"
   ami = "ami-058e6df85cfc7760b"
   instance_type = "t2.micro"
-  security_groups = ["${aws_security_group.ingress-all-test.id}"]
-  subnet_id = "${aws_subnet.subnet-connect.id}"
+  ami = "ami-047e03b8591f2d48a"
+  instance_type = "t2.micro"
+  security_groups = ["sg-0913f88b3a18f2030"]
+  subnet_id = "subnet-0aaf513c901e068dd"
   user_data =file("keys.sh")
   associate_public_ip_address = true
    key_name = "ssh-connect"
